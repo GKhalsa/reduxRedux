@@ -12,13 +12,11 @@ export default class Store {
   }
 
   dispatch(action){
-
     if(!isPlainObject(action) || typeof action.type === 'undefined'){
       throw new Error('Actions must be plain objects with a defined type property');
     }
 
     this.currentState = this.currentReducer(this.currentState, action);
-
   }
 
 }
