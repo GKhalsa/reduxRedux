@@ -1,7 +1,12 @@
+import {countReducer} from './helpers/reducers';
+import Store from '../src/store';
+
 describe('Store', () => {
 
-  it('is wired up', () => {
-    expect(true).toEqual(true);
+  it('sets initial state', () => {
+    const store = new Store(countReducer, 0);
+    expect(store.getState()).toEqual(0);
   });
+
 
 });
