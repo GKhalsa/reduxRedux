@@ -10,3 +10,14 @@ export function countReducer(state = 0, action){
       return state;
   }
 }
+
+export function toDoReducer(state = [], action){
+  switch(action.type){
+    case ADD_TODO:
+      return state.concat(action.todo);
+    case REMOVE_TODO:
+      return state.filter((todo, index) => index !== action.index);
+    default:
+      return state;
+  }
+}
