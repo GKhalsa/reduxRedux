@@ -17,5 +17,13 @@ describe('Store', () => {
     expect(store.getState()).toEqual(0);
   });
 
+  it('only accepts actions that are objects with a type property', () => {
+    const store = new Store(countReducer, 0)
+    expect(() => store.dispatch(1)).toThrow();
+    expect(() => store.dispatch({})).toThrow();
+  });
+
+  
+
 
 });
