@@ -2,8 +2,6 @@ import Store from '../src/store';
 import combineReducers from '../src/combineReducers';
 import {countReducer, toDoReducer} from './helpers/reducers';
 import {add, addTodo} from './helpers/actionCreators'
-import pry from 'pryjs'
-
 
 describe('combineReducers', () => {
 
