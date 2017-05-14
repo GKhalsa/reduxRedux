@@ -1,7 +1,8 @@
-import {countReducer} from './helpers/reducers';
-import {add, subtract} from './helpers/actionCreators'
+import {countReducer, toDoReducer} from './helpers/reducers';
+import {add, subtract, addTodo} from './helpers/actionCreators';
+import combineReducers from '../src/combineReducers';
 import Store from '../src/store';
-import sinon from 'sinon'
+import sinon from 'sinon';
 
 describe('Store', () => {
 
@@ -45,6 +46,13 @@ describe('Store', () => {
     store.unsubscribe();
     store.dispatch(add(1));
     expect(callback.callCount).toEqual(0);
+  });
+
+  it('accepts a combined reducer', () => {
+    const store = new Store(combineReducers({countReducer, toDoReducer}));
+    store.dispatch(add(1));
+    store.dispatch(addTodo({todo: 'sweep'}));
+    expect(store.getState()).toEqual({countReducer: 1, toDoReducer:[{todo: 'sweep'}]});
   });
 
 });
