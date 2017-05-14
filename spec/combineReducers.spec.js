@@ -13,10 +13,11 @@ describe('combineReducers', () => {
       toDoReducer
     });
 
+    expect(typeof reducer).toEqual("function");
     const state = reducer({}, add(1));
     expect(state).toEqual({countReducer: 1, toDoReducer: []});
-    const newState = reducer(state, addTodo({task: "run"}))
-    expect(newState).toEqual({countReducer: 1, toDoReducer: [{task: "run"}]})
+    const newState = reducer(state, addTodo({task: "run"}));
+    expect(newState).toEqual({countReducer: 1, toDoReducer: [{task: "run"}]});
   });
 
 });
