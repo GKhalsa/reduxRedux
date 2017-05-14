@@ -29,4 +29,8 @@ export default class Store {
     this.listeners.push(listener);
   }
 
+  unsubscribe(){
+    this.listeners = [];
+  }
+
 }
