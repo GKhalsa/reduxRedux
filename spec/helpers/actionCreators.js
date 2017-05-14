@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT} from './actionTypes';
+import {INCREMENT, DECREMENT, ADD_TODO, REMOVE_TODO} from './actionTypes';
 
 export function add(num){
   return {
@@ -12,5 +12,19 @@ export function subtract(num){
   return {
     type: DECREMENT,
     num
+  };
+}
+
+export function addTodo(todo){
+  return {
+    type: ADD_TODO,
+    todo
+  };
+}
+
+export function removeTodo(index){
+  return {
+    type: REMOVE_TODO,
+    index
   };
 }

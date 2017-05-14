@@ -23,7 +23,4 @@ describe('Store', () => {
     expect(() => store.dispatch({})).toThrow();
   });
 
-  
-
-
 });
