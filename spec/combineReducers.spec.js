@@ -1,6 +1,9 @@
 import Store from '../src/store';
 import combineReducers from '../src/combineReducers';
 import {countReducer, toDoReducer} from './helpers/reducers';
+import {add, addTodo} from './helpers/actionCreators'
+import pry from 'pryjs'
+
 
 describe('combineReducers', () => {
 
@@ -10,8 +13,10 @@ describe('combineReducers', () => {
       toDoReducer
     });
 
-    expect(reducer).toEqual({countReducer: 0, toDoReducer: []});
-
+    const state = reducer({}, add(1));
+    expect(state).toEqual({countReducer: 1, toDoReducer: []});
+    const newState = reducer(state, addTodo({task: "run"}))
+    expect(newState).toEqual({countReducer: 1, toDoReducer: [{task: "run"}]})
   });
 
 });

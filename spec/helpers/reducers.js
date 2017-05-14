@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT} from './actionTypes';
+import {INCREMENT, DECREMENT, ADD_TODO, REMOVE_TODO} from './actionTypes';
 
 export function countReducer(state = 0, action){
   switch(action.type){

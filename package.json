@@ -20,5 +20,8 @@
     "babel-preset-react": "^6.23.0",
     "jasmine": "^2.5.3",
     "lodash": "^4.17.4"
+  },
+  "dependencies": {
+    "pryjs": "^1.0.3"
   }
 }
