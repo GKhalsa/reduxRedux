@@ -7,7 +7,7 @@ describe('bindActionCreator', () => {
   it('combines action with dispatching', () => {
     const store = new Store(countReducer, 0);
     const action = add;
-    const addDispatch = bindActionCreator(action, store.dispatch);
+    const addDispatch = bindActionCreator(action, store);
     addDispatch(1);
     expect(store.getState()).toEqual(1);
   });
